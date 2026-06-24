@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+:root {
+  --black:   #0a0a0f;
+  --ink:     #12121a;
+  --card:    #16161f;
+  --card2:   #1c1c28;
+  --border:  rgba(255,255,255,0.07);
+  --white:   #f5f4ef;
+  --accent:  #c8f04d;
+  --accent2: #7df3b8;
+  --muted:   rgba(245,244,239,0.45);
+  --muted2:  rgba(245,244,239,0.2);
+  --error:   #ff6b6b;
+  --valid:   #7df3b8;
+  --grad:    linear-gradient(135deg,#c8f04d 0%,#7df3b8 100%);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background:var(--black); color:var(--white);
+  font-family:'DM Sans',sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ─── LAYOUT ─── */
+.lp-root {
+  display:flex; min-height:100vh;
+}
+
+/* ─── LEFT PANEL ─── */
+.lp-left {
+  flex:1; background:var(--ink);
+  position:relative; overflow:hidden;
+  display:flex; align-items:stretch; min-height:100vh;
+}
+
+.lp-left-blob {
+  position:absolute; border-radius:50%;
+  filter:blur(90px); opacity:0.18; pointer-events:none;
+}
+
+.lp-blob-1 {
+  width:500px; height:500px;
+  background:var(--accent); top:-120px; left:-120px;
+}
+
+.lp-blob-2 {
+  width:350px; height:350px;
+  background:var(--accent2); bottom:-80px; right:-60px;
+}
+
+.lp-left-content {
+  position:relative; z-index:2;
+  display:flex; flex-direction:column;
+  justify-content:space-between;
+  padding:48px; width:100%;
+}
+
+.lp-back-logo {
+  font-family:'Syne',sans-serif; font-weight:800; font-size:1.4rem;
+  background:var(--grad); -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent; text-decoration:none;
+  width:fit-content;
+}
+
+.lp-left-text {
+  flex:1; display:flex; flex-direction:column;
+  justify-content:center; padding:60px 0;
+}
+
+.lp-left-tag {
+  font-size:0.78rem; text-transform:uppercase;
+  letter-spacing:0.12em; color:var(--accent);
+  font-weight:600; margin-bottom:16px;
+}
+
+.lp-left-h2 {
+  font-family:'Clash Display',sans-serif;
+  font-size:clamp(2rem,3vw,3rem);
+  font-weight:700; letter-spacing:-0.03em;
+  line-height:1.1; color:var(--white); margin-bottom:20px;
+}
+
+.lp-left-sub {
+  color:var(--muted); font-size:1rem; line-height:1.7; max-width:400px;
+}
+
+/* TRUST BADGES */
+.lp-trust-badges { display:flex; flex-direction:column; gap:12px; }
+
+.lp-badge {
+  display:flex; align-items:center; gap:10px;
+  color:var(--muted); font-size:0.88rem;
+}
+
+.lp-badge svg { color:var(--accent); font-size:0.9rem; flex-shrink:0; }
+
+/* ─── RIGHT PANEL ─── */
+.lp-right {
+  width:480px; flex-shrink:0;
+  background:var(--black);
+  display:flex; align-items:center; justify-content:center;
+  padding:48px 40px;
+  border-left:1px solid var(--border);
+}
+
+.lp-card { width:100%; max-width:400px; }
+
+/* ─── FORM HEADER ─── */
+.lp-form-header { margin-bottom:28px; }
+
+.lp-form-header h2 {
+  font-family:'Clash Display',sans-serif;
+  font-size:2rem; font-weight:700;
+  letter-spacing:-0.03em; color:var(--white); margin-bottom:8px;
+}
+
+.lp-form-header p { color:var(--muted); font-size:0.88rem; }
+
+.lp-form-header a {
+  color:var(--accent); text-decoration:none; font-weight:500;
+}
+
+/* ─── ROLE SELECT ─── */
+.lp-role-select {
+  display:flex; flex-direction:column; gap:10px; margin-bottom:24px;
+}
+
+.lp-role-label {
+  font-size:0.8rem; font-weight:500; color:var(--muted);
+}
+
+.lp-role-btns { display:flex; gap:10px; }
+
+.lp-role-btn {
+  flex:1; display:flex; align-items:center; justify-content:center;
+  gap:8px; padding:12px 16px;
+  background:var(--card); border:1px solid var(--border);
+  border-radius:12px; color:var(--muted);
+  font-family:'DM Sans',sans-serif; font-size:0.88rem;
+  font-weight:500; cursor:pointer; transition:all 0.2s;
+}
+
+.lp-role-btn:hover { border-color:var(--muted); color:var(--white); }
+
+.lp-role-btn.active {
+  background:rgba(200,240,77,0.1);
+  border-color:var(--accent); color:var(--accent); font-weight:600;
+}
+
+/* ─── FORM ─── */
+.lp-form { display:flex; flex-direction:column; gap:18px; }
+
+/* ─── FIELD ─── */
+.lp-field { display:flex; flex-direction:column; gap:7px; }
+
+.lp-field label {
+  font-size:0.8rem; font-weight:500; color:var(--muted);
+}
+
+.lp-label-row {
+  display:flex; align-items:center; justify-content:space-between;
+}
+
+.lp-forgot {
+  font-size:0.78rem; color:var(--accent);
+  text-decoration:none; transition:opacity 0.2s;
+}
+
+.lp-forgot:hover { opacity:0.75; }
+
+/* INPUT WRAP */
+.lp-input-wrap {
+  position:relative; display:flex; align-items:center;
+  background:var(--card); border:1px solid var(--border);
+  border-radius:12px; transition:border-color 0.2s, box-shadow 0.2s;
+  overflow:hidden;
+}
+
+.lp-field.error .lp-input-wrap {
+  border-color:var(--error);
+  box-shadow:0 0 0 3px rgba(255,107,107,0.1);
+}
+
+.lp-field.valid .lp-input-wrap {
+  border-color:rgba(125,243,184,0.4);
+}
+
+.lp-input-wrap:focus-within {
+  border-color:rgba(200,240,77,0.5);
+  box-shadow:0 0 0 3px rgba(200,240,77,0.07);
+}
+
+.lp-field.error .lp-input-wrap:focus-within {
+  border-color:var(--error);
+  box-shadow:0 0 0 3px rgba(255,107,107,0.1);
+}
+
+/* ICONS */
+.lp-icon {
+  position:absolute; left:14px;
+  color:var(--muted2); font-size:0.85rem; pointer-events:none;
+}
+
+.lp-valid-icon {
+  position:absolute; right:14px;
+  color:var(--valid); font-size:0.85rem; pointer-events:none;
+}
+
+/* EYE TOGGLE */
+.lp-eye {
+  position:absolute; right:12px;
+  background:transparent; border:none;
+  color:var(--muted); cursor:pointer;
+  display:flex; align-items:center;
+  font-size:0.85rem; padding:4px; transition:color 0.2s;
+}
+
+.lp-eye:hover { color:var(--white); }
+
+/* INPUT */
+.lp-input-wrap input {
+  flex:1; background:transparent; border:none; outline:none;
+  color:var(--white); font-family:'DM Sans',sans-serif;
+  font-size:0.92rem; padding:14px 40px;
+}
+
+.lp-input-wrap input::placeholder { color:var(--muted2); }
+
+/* ERROR */
+.lp-error { font-size:0.76rem; color:var(--error); }
+
+/* ─── SUBMIT BUTTON ─── */
+.lp-btn {
+  background:var(--accent); color:var(--black);
+  border:none; padding:15px 24px; border-radius:12px;
+  font-family:'Syne',sans-serif; font-weight:700;
+  font-size:0.95rem; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  gap:10px; transition:opacity 0.2s, transform 0.2s;
+  text-decoration:none; margin-top:4px; width:100%;
+}
+
+.lp-btn:hover { opacity:0.87; transform:translateY(-1px); }
+
+/* TERMS */
+.lp-terms {
+  font-size:0.76rem; color:var(--muted);
+  text-align:center; line-height:1.6;
+}
+
+.lp-terms a { color:var(--accent); text-decoration:none; }
+
+/* ─── SUCCESS ─── */
+.lp-success {
+  display:flex; flex-direction:column;
+  align-items:center; text-align:center; gap:20px;
+  padding:20px 0; animation:fadeUp 0.5s ease both;
+}
+
+.lp-success-icon {
+  width:80px; height:80px; border-radius:50%;
+  background:rgba(125,243,184,0.12);
+  border:2px solid var(--valid);
+  display:flex; align-items:center; justify-content:center;
+  font-size:2rem; color:var(--valid);
+  animation:popIn 0.4s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+
+.lp-success h2 {
+  font-family:'Clash Display',sans-serif;
+  font-size:2rem; font-weight:700;
+  letter-spacing:-0.03em; color:var(--white);
+}
+
+.lp-success p { color:var(--muted); font-size:0.92rem; line-height:1.6; }
+.lp-success strong { color:var(--accent); }
+
+.lp-btn-link { max-width:280px; }
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(20px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+@keyframes popIn {
+  from { opacity:0; transform:scale(0.5); }
+  to   { opacity:1; transform:scale(1); }
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width:900px) {
+  .lp-root      { flex-direction:column; }
+  .lp-left      { min-height:auto; }
+  .lp-left-content { padding:32px 28px; }
+  .lp-left-text { padding:28px 0; }
+  .lp-right     { width:100%; padding:40px 28px; border-left:none; border-top:1px solid var(--border); }
+}
+
+@media (max-width:480px) {
+  .lp-left-content { padding:24px 20px; }
+  .lp-right        { padding:32px 20px; }
+  .lp-left-h2      { font-size:1.7rem; }
+}
