@@ -25,6 +25,7 @@ function App() {
           <Route path="/userdashboard" element={<UserDashboard />}  />
           <Route path="/user-dashboard" element={<UserDashboard />} />
           <Route path="/booking/:id" element={<Booking />} />
+          <Route path="/owner-dashboard" element={<OwnerDashboard />} />
           <Route path="/chat"          element={<Chat/>}/>
         </Routes>
       </BrowserRouter>
